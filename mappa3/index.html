@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Binding - Color Picker</title>
+    <script src="main.js"></script>
+    <style>
+        /* Nullázzuk a margókat, hogy teljesen kitöltse a képernyőt */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* A konténer, ami kitölti az egész screent */
+        #page-wrapper {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* Alapértelmezett háttérszín átmenet a finomabb váltáshoz */
+            transition: background-color 0.2s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ez a konténer felel a teljes képernyős háttérért -->
+    <div id="page-wrapper">
+        <label for="colorPicker">Válassz háttérszínt:</label>
+        <!-- Color picker input elem -->
+        <input type="color" id="colorPicker" value="#ffffff">
+    </div>
+
+    <!-- Külső JavaScript fájl linkelése -->
+    <script src="script.js"></script>
+</body>
+</html>

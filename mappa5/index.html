@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch és Computed Példa</title>
+    <!-- Vue 3 CDN behívása -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <form @submit.prevent>
+            <!-- Count input -->
+            <div>
+                <label for="count">count: </label>
+                <input 
+                    type="number" 
+                    id="count" 
+                    v-model.number="count" 
+                    min="0" 
+                    max="10" 
+                    step="1"
+                >
+            </div>
+
+            <!-- Price input -->
+            <div>
+                <label for="price">price: </label>
+                <input 
+                    type="number" 
+                    id="price" 
+                    v-model.number="price" 
+                    min="0" 
+                    max="10000" 
+                    step="100"
+                >
+            </div>
+        </form>
+
+        <!-- A form alatti div, ami csak akkor jelenik meg, ha a fullPrice nem 0 -->
+        <div v-if="fullPrice !== 0">
+            Full price: ${{ formattedFullPrice }}
+        </div>
+    </div>
+
+    <!-- Külső JavaScript fájl linkelése -->
+    <script src="script.js"></script>
+</body>
+</html>

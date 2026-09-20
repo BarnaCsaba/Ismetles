@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gitár Webshop - Class Binding</title>
+    <!-- Vue 3 CDN behívása -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="main.js"></script>
+    <style>
+        /* CSS osztályok a színezéshez */
+        .out-of-stock {
+            color: red;
+        }
+
+        .in-stock {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- A Vue app gyökér eleme -->
+    <div id="app">
+        <h1>Gitár készlet</h1>
+        
+        <ul>
+            <!-- v-for direktíva a tömb végigjárásához -->
+            <!-- Class binding (:class): dinamikusan adja hozzá az osztályt a készlet alapján -->
+            <li 
+                v-for="guitar in guitars" 
+                :key="guitar.id"
+                :class="{ 'out-of-stock': guitar.stock === 0, 'in-stock': guitar.stock > 0 }"
+            >
+                {{ guitar.title }} - Készleten: {{ guitar.stock }} db
+            </li>
+        </ul>
+    </div>
+
+    <!-- A külső JavaScript fájl belinkelése -->
+    <script src="script.js"></script>
+</body>
+</html>
